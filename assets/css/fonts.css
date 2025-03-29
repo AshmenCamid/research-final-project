@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+
+@font-face {
+    font-family: old-english-text;
+    src: url(old-english-text-mt.TTF);
+}
+
+.old-english-text {
+    font-family: 'old-english-text';
+}
+
+/* GOOGLE FONTS */
+.anton {
+    font-family: 'Anton', sans-serif;
+}
+
+.kanit {
+    font-family: 'Kanit', sans-serif;
+}
+
+.oswald {
+    font-family: 'Oswald', sans-serif;
+}
+
+.pirata-one {
+    font-family: 'Pirata One', cursive;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.syncopate {
+    font-family: 'Syncopate', sans-serif;
+}
+
+/* FONT SIZE */
+.xx-small {
+    font-size: xx-small;
+}
+
+.x-small {
+    font-size: x-small;
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+.small {
+    font-size: small;
+}
+
+.large {
+    font-size: large;
+}
+
+.larger {
+    font-size: larger;
+}
+
+.x-large {
+    font-size: x-large;
+}
+
+.xx-large {
+    font-size: xx-large;
+}
+
+/* SPACING */
+.indent-50 {
+    text-indent: 50px;
+    line-height: 20px;
+}
+
+.line-height-15 {
+    line-height: 15px;
+}
+
+.line-height-30 {
+    line-height: 30px;
+}
+
+.line-height-45 {
+    line-height: 45px;
+}
+
+/* ALIGNMENT */
+.justify {
+    text-align: justify;
+}

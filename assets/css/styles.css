@@ -1,0 +1,125 @@
+/* Sidebar Styling */
+.sidebar {
+    width: 190px;
+    height: 100vh;
+    position: fixed;
+    color: white;
+    left: 0;
+    top: 0;
+    background-color: #343a40;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+.custom-blue {
+    background-color: #162d72 !important; 
+}
+.custom-dropdown {
+    font-size: 1.5rem; /* Bigger text */
+    padding: 10px 20px; /* More spacing */
+    width: 150px; /* Adjust width as needed */
+}
+
+/* Sidebar Toggle for Mobile */
+@media (max-width: 991px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+/* Sidebar Links */
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/* Sidebar Icons */
+.sidebar .nav-link img.nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+/* Fix Sidebar Dropdown */
+.sidebar .dropdown-menu {
+    width: 100%;
+    background-color: #162d72;
+    border: none;
+}
+.sidebar .dropdown-menu .dropdown-item {
+    color: white;
+}
+.sidebar .dropdown-menu .dropdown-item:hover {
+    background-color: #162d72;
+}
+/* Main Content */
+.main-content {
+    margin-left: 220px; /* Adjust margin to ensure it is not behind the sidebar */
+    padding: 30px; /* Increase padding */
+    transition: all 0.3s ease-in-out;
+    max-width: calc(100% - 220px); /* Further reduce the width */
+    margin-top: 30px; /* Increase top margin */
+    background-color: #f4f4f4; /* Change background color */
+    border-radius: 25px; /* Increase border radius */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhance box shadow */
+}
+/* Responsive Dashboard Cards */
+@media (max-width: 767px) { 
+    .col-lg-6 {
+        width: 100%;
+    }
+}
+/* Status Indicators */
+.status.green {
+    background-color: green;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.status.red {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.status.black {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+h1 {
+    font-size: 1.5rem; /* Reduce header size */
+}
+.card {
+    padding: 30px; /* Increase card padding */
+    border-radius: 25px; /* Increase border radius */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhance box shadow */
+    background-color: #ffffff; /* Add background color */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition for hover effect */
+}
+.card:hover {
+    transform: translateY(-15px); /* Add hover effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Enhance hover shadow */
+}
