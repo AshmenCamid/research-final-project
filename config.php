@@ -1,6 +1,6 @@
 <?php
 
 
-$conn = new mysqli("sql210.infinityfree.com", "if0_38751015", "vQYMafvBZESJ", "if0_38751015_project_db");
+$conn = new mysqli("sql205.infinityfree.com", "if0_38739352", "KTLaEbhV715", "if0_38739352_project_db");
 
 ?>

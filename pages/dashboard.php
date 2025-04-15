@@ -3,11 +3,15 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Set default timezone dynamically
+$timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : 'Asia/Manila';
+date_default_timezone_set($timezone);
+
 // Database connection
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "project_db"; // Change this to your actual database name
+$host = "sql210.infinityfree.com";
+$username = "if0_38751015";
+$password = "vQYMafvBZESJ";
+$database = "if0_38751015_project_db";
 
 $conn = new mysqli($host, $username, $password, $database);
 
@@ -216,6 +220,11 @@ $conn->close();
                         <h3>Absent Workers</h3>
                         <h4><span id="absent-workers"><?= $absentWorkers ?></span></h4>
                     </div>
+                </div>
+
+                <!-- Add this canvas element for the chart -->
+                <div class="chart-container">
+                    <canvas id="workersChart"></canvas>
                 </div>
             </div>
         </div>
