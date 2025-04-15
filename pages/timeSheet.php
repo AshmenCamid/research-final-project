@@ -35,66 +35,97 @@ $result = mysqli_query($conn, $sql);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/timesheet.css">
     <style>
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px; /* Limit the width for better layout */
+            margin: 0 auto; /* Center the container */
+        }
+        .content {
+            width: 100%; /* Ensure content spans the container */
+        }
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            justify-content: space-between;
+            gap: 10px; /* Add spacing between elements */
+        }
+        .filter-section input,
+        .filter-section select,
+        .filter-section button {
+            flex: 1; /* Allow elements to resize */
+            min-width: 150px; /* Set a minimum width */
+        }
         .content { border: 1px solid; padding: 20px 50px; border-radius: 20px; border-color: rgb(204, 201, 201); }
         td, table tr th { border: 1px solid; padding: 12px 15px; }
         .add-work { text-decoration: none; font-size: 20px; margin-left: 80%; border: 1px solid; padding: 10px; border-radius: 20px; background-color: green; color: white; }
-        .content-table { border-collapse: collapse; margin: 25px 0; font-size: 1em; min-width: 400px; }
+        .content-table { border-collapse: collapse; margin: 25px 0; font-size: 1em; min-width: 500px; }
         .content-table thead tr { text-align: left; font-weight: bold; }
+        .header-title {
+            font-size: 2.5rem; /* Larger font size */
+            font-weight: bold; /* Make it bold */
+            color: #162d72; /* Custom blue color */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+            text-align: center; /* Center align the text */
+            margin-bottom: 20px; /* Add spacing below */
+        }
     </style>
 </head>
 <body>
-
-<nav class="sidebar navbar navbar-expand-lg custom-blue">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="sidebarNav">
-                <ul class="navbar-nav flex-column w-100">
-                    <div class="sidebar-logo text-center w-100 my-3">
-                        <img src="../assets/image/peso.png" class="img-fluid" alt="Company Logo" style="max-width: 100px;">
-                    </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="dashboard.php"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="attendance.php"><i class="bi bi-calendar-check me-2"></i> Attendance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="workers.php"><i class="bi bi-people-fill me-2"></i> Workers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="timeSheet.php"><i class="bi bi-clock-history me-2"></i> Time Sheet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reports.php"><i class="bi bi-file-earmark-bar-graph me-2"></i> Reports</a>
-                    </li>
-                    <!-- Logout Button -->
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-white fw-bold" href="../controllers/logout.php">
-                            <i class="bi bi-box-arrow-right me-2"></i> Logout
-                        </a>
-                    </li>
-                </ul>
+    <div class="main-container">
+        <nav class="sidebar navbar navbar-expand-lg custom-blue">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="sidebarNav">
+                    <ul class="navbar-nav flex-column w-100">
+                        <div class="sidebar-logo text-center w-100 my-3">
+                            <img src="../assets/image/peso.png" class="img-fluid" alt="Company Logo" style="max-width: 100px;">
+                        </div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="dashboard.php"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="attendance.php"><i class="bi bi-calendar-check me-2"></i> Attendance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="workers.php"><i class="bi bi-people-fill me-2"></i> Workers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="timeSheet.php"><i class="bi bi-clock-history me-2"></i> Time Sheet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.php"><i class="bi bi-file-earmark-bar-graph me-2"></i> Reports</a>
+                        </li>
+                        <!-- Logout Button -->
+                        <li class="nav-item mt-3">
+                            <a class="nav-link text-white fw-bold" href="../controllers/logout.php">
+                                <i class="bi bi-box-arrow-right me-2"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="main-content container mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-3" style="border: 1px solid; padding: 7px; border-radius: 9px; border-color: rgb(197, 194, 194);">
-            <h1 class="text-primary kanit">Time Sheet</h1>
-        </div>
+        <div class="main-content container mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3" style="border: 1px solid; padding: 7px; border-radius: 9px; border-color: rgb(197, 194, 194);">
+                <h1 class="header-title">Time Sheet</h1>
+            </div>
 
-        <div class="content">
-            <form method="GET" class="mb-3 p-3 bg-light rounded shadow-sm">
-                <div class="d-flex align-items-center">
-                    <label for="date" class="me-2 fw-bold text-primary">📅 Select Date:</label>
-                    <input type="date" id="date" name="date" class="form-control me-3 border-primary rounded" value="<?= $selected_date; ?>" style="max-width: 200px;">
+            <div class="content">
+                <form method="GET" class="mb-3 p-3 bg-light rounded shadow-sm filter-section">
+                    <label for="date" class="fw-bold text-primary">📅 Select Date:</label>
+                    <input type="date" id="date" name="date" class="form-control border-primary rounded" value="<?= $selected_date; ?>">
 
-                    <label for="time_period" class="me-2 fw-bold text-primary">⏳ Time Period:</label>
-                    <select id="time_period" name="time_period" class="form-control me-3 border-primary rounded" style="max-width: 150px;">
+                    <label for="time_period" class="fw-bold text-primary">⏳ Time Period:</label>
+                    <select id="time_period" name="time_period" class="form-control border-primary rounded">
                         <option value="all" <?= ($time_period == 'all') ? 'selected' : ''; ?>>All</option>
                         <option value="am" <?= ($time_period == 'am') ? 'selected' : ''; ?>>AM</option>
                         <option value="pm" <?= ($time_period == 'pm') ? 'selected' : ''; ?>>PM</option>
@@ -103,60 +134,61 @@ $result = mysqli_query($conn, $sql);
                     <button type="submit" class="btn btn-primary px-3">
                         <i class="bi bi-funnel"></i> Filter
                     </button>
-                </div>
-            </form>
+                </form>
 
-            <table class="table table-bordered text-center">
-                <thead class="table-primary">
-                    <tr>
-                        <th>WORKERS ID</th>
-                        <th>WORKERS NAME</th>
-                        <th>ROLE</th>
-                        <th>WORKED HOURS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $worker_id = $row['worker_id'];
-                            $fullname = $row['fullname'];
-                            $role = $row['role'];
-                            $time_in = $row['time_in'];
-                            $time_out = $row['time_out'];
+                <div class="table-wrapper">
+                    <table class="table table-bordered text-center">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>WORKERS ID</th>
+                                <th>WORKERS NAME</th>
+                                <th>ROLE</th>
+                                <th>WORKED HOURS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $worker_id = $row['worker_id'];
+                                    $fullname = $row['fullname'];
+                                    $role = $row['role'];
+                                    $time_in = $row['time_in'];
+                                    $time_out = $row['time_out'];
 
-                            if (is_null($time_in) || is_null($time_out)) {
-                                echo "<tr>
-                                        <td>$worker_id</td>
-                                        <td>$fullname</td>
-                                        <td>$role</td>
-                                        <td class='text-center text-danger'>No Record</td>
-                                      </tr>";
+                                    if (is_null($time_in) || is_null($time_out)) {
+                                        echo "<tr>
+                                                <td>$worker_id</td>
+                                                <td>$fullname</td>
+                                                <td>$role</td>
+                                                <td class='text-center text-danger'>No Record</td>
+                                              </tr>";
+                                    } else {
+                                        // Calculate total worked time
+                                        $start_time = strtotime($time_in);
+                                        $end_time = strtotime($time_out);
+                                        $worked_seconds = $end_time - $start_time;
+                                        $total_hours = floor($worked_seconds / 3600);
+                                        $total_minutes = floor(($worked_seconds % 3600) / 60);
+
+                                        echo "<tr>
+                                                <td>$worker_id</td>
+                                                <td>$fullname</td>
+                                                <td>$role</td>
+                                                <td>" . sprintf("%d hrs %d mins", $total_hours, $total_minutes) . "</td>
+                                              </tr>";
+                                    }
+                                }
                             } else {
-                                // Calculate total worked time
-                                $start_time = strtotime($time_in);
-                                $end_time = strtotime($time_out);
-                                $worked_seconds = $end_time - $start_time;
-                                $total_hours = floor($worked_seconds / 3600);
-                                $total_minutes = floor(($worked_seconds % 3600) / 60);
-
-                                echo "<tr>
-                                        <td>$worker_id</td>
-                                        <td>$fullname</td>
-                                        <td>$role</td>
-                                        <td>" . sprintf("%d hrs %d mins", $total_hours, $total_minutes) . "</td>
-                                      </tr>";
+                                echo '<tr><td colspan="4" class="text-center text-danger">No records found for ' . $selected_date . '.</td></tr>';
                             }
-                        }
-                    } else {
-                        echo '<tr><td colspan="4" class="text-center text-danger">No records found for ' . $selected_date . '.</td></tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

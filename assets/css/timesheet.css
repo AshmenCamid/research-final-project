@@ -1,12 +1,4 @@
 /* Sidebar Styling */
-.header-title {
-    font-size: 2.5rem !important; /* Larger font size */
-    font-weight: bold !important; /* Make it bold */
-    color: #162d72 !important; /* Custom blue color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important; /* Add subtle shadow */
-    text-align: center !important; /* Center align the text */
-    margin-bottom: 20px !important; /* Add spacing below */
-}
 .sidebar {
     width: 190px;
     height: 100vh;
@@ -29,6 +21,7 @@
     padding: 10px 20px; /* More spacing */
     width: 150px; /* Adjust width as needed */
 }
+
 /* Sidebar Toggle for Mobile */
 @media (max-width: 991px) {
     .sidebar {
@@ -82,11 +75,11 @@
 }
 /* Main Content */
 .main-content {
-    margin-left: 220px; /* Adjust margin to ensure it is not behind the sidebar */
-    margin-right: -10px;
+    margin-left: 150px; /* Adjust margin to ensure it is not behind the sidebar */
+    margin-right: -50px;
     padding: 30px; /* Increase padding */
     transition: all 0.3s ease-in-out;
-    max-width: calc(100% - 220px); /* Further reduce the width */
+    max-width: calc(110% - 250px); /* Further reduce the width */
     margin-top: 30px; /* Increase top margin */
     background-color: #f4f4f4; /* Change background color */
     border-radius: 25px; /* Increase border radius */
@@ -168,12 +161,35 @@
 
 @media (max-width: 576px) {
     .filter-section {
-        padding: 10px;
+        padding: 8px; /* Reduced padding for smaller screens */
+        max-width: 100%; /* Ensure it stays within the container */
+        margin: 0 auto; /* Center the filter section */
     }
     .filter-section input,
     .filter-section select,
     .filter-section button {
-        font-size: 0.9rem;
+        font-size: 0.85rem; /* Slightly smaller font size */
+        padding: 8px; /* Adjusted padding for better fit */
+        width: 100%; /* Ensure full width */
+    }
+    .main-content {
+        padding: 15px; /* Reduced padding for better spacing */
+        margin-top: 15px; /* Adjusted margin for consistency */
+    }
+    .card {
+        padding: 15px; /* Reduced padding for compact design */
+        font-size: 0.85rem; /* Adjusted font size */
+    }
+    h1 {
+        font-size: 1.1rem; /* Slightly smaller heading size */
+    }
+    .custom-dropdown {
+        font-size: 0.9rem; /* Adjusted dropdown font size */
+        width: 100%; /* Ensure full width */
+    }
+    .sidebar .nav-link {
+        font-size: 13px; /* Adjusted font size */
+        padding: 8px 10px; /* Reduced padding */
     }
 }
 
@@ -182,41 +198,75 @@
     .main-content {
         margin-left: 0;
         max-width: 100%;
-        padding: 20px;
-        margin-top: 20px;
+        padding: 10px; /* Further reduced padding */
+        margin-top: 15px; /* Adjusted margin */
     }
     .filter-section {
         flex-direction: column;
         align-items: stretch;
-        padding: 10px;
+        padding: 8px; /* Reduced padding */
+        max-width: 100%; /* Ensure it stays within the container */
+        margin: 0 auto; /* Center the filter section */
     }
     .filter-section label {
-        margin-bottom: 5px;
-        font-size: 0.9rem;
+        margin-bottom: 4px; /* Adjusted spacing */
+        font-size: 0.85rem; /* Smaller font size */
     }
     .filter-section input,
     .filter-section select,
     .filter-section button {
-        width: 100%;
-        margin-bottom: 10px;
-        font-size: 0.8rem;
-    }
-    .main-content {
-        padding: 10px;
+        width: 100%; /* Ensure full width */
+        margin-bottom: 8px; /* Reduced margin */
+        font-size: 0.75rem; /* Smaller font size */
+        padding: 6px; /* Compact padding */
     }
     .card {
-        padding: 10px;
-        font-size: 0.8rem;
+        padding: 8px; /* Compact padding */
+        font-size: 0.75rem; /* Smaller font size */
     }
     h1 {
-        font-size: 1rem;
+        font-size: 0.9rem; /* Smaller heading size */
     }
     .custom-dropdown {
-        font-size: 0.8rem;
-        width: 100%;
+        font-size: 0.75rem; /* Smaller dropdown font size */
+        width: 100%; /* Ensure full width */
     }
     .sidebar .nav-link {
-        font-size: 12px;
-        padding: 8px 10px;
+        font-size: 11px; /* Smaller font size */
+        padding: 6px 8px; /* Compact padding */
     }
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Limit the width for better layout */
+    margin: 0 auto; /* Center the container */
+}
+.content {
+    width: 100%; /* Ensure content spans the container */
+    padding: 20px; /* Add padding for spacing */
+    border: 1px solid rgb(204, 201, 201); /* Add border for separation */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    width: 100%; /* Ensure it spans the content container */
+    margin-top: 20px; /* Add spacing above the table */
+}
+.filter-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    gap: 10px; /* Add spacing between elements */
+}
+.filter-section input,
+.filter-section select,
+.filter-section button {
+    flex: 1; /* Allow elements to resize */
+    min-width: 150px; /* Set a minimum width */
 }

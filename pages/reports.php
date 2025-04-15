@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../controllers/conn.php");
+include("../controllers/conn.php"); // Use centralized connection
 date_default_timezone_set("Asia/Manila");
 
 // Purpose: This file generates a report of workers, including their total worked hours, salary status, and last payment date.
@@ -40,6 +40,8 @@ $sql .= " GROUP BY w.worker_id";
 
 // Execute the query and fetch results
 $result = mysqli_query($conn, $sql);
+
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,7 @@ $result = mysqli_query($conn, $sql);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/reports.css">
     <style>
         .content { border: 1px solid rgb(204, 201, 201); padding: 20px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } /* Enhance padding, add background color and box shadow */
         .search-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; } /* Enhance margin */
@@ -104,7 +106,7 @@ $result = mysqli_query($conn, $sql);
     </nav>
     <div class="main-content container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3 p-3 border rounded shadow-sm bg-light">
-            <h1 class="text-primary kanit">Reports</h1>
+            <h1 class="header-title">Reports</h1>
             <div class="fw-bold fs-5">
                 <i class="bi bi-person"></i> <span id="userName">ADMIN</span>
             </div>
@@ -132,6 +134,8 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </form><br>
 
+            <div class="table-responsive">
+              <table class="content-table"></table>
             <table class="table table-bordered text-center">
                 <thead class="table-primary">
                     <tr>
@@ -179,6 +183,8 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
     <script src="../assets/js/reports.js"></script>
 
 </body>

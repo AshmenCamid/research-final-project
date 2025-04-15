@@ -1,10 +1,5 @@
 <?php
-// Database connection
-$conn = new mysqli("localhost", "root", "", "project_db");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("conn.php"); // Use centralized connection
 
 // Get worker_id from request
 if (isset($_POST['worker_id'])) {

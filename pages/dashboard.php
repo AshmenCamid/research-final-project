@@ -4,12 +4,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database connection
-$servername = "localhost";
+$host = "localhost";
 $username = "root";
 $password = "";
-$database = "project_db";
+$database = "project_db"; // Change this to your actual database name
 
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -158,7 +160,7 @@ $conn->close();
     <div class="main-content container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3 border p-3 rounded shadow-sm bg-light">
             <div class="d-flex align-items-center">
-            <h1 class="text-primary kanit">Dashboard</h1>
+            <h1 class="header-title">Dashboard</h1>
             </div>
 
             <div class="fw-bold fs-5">
@@ -171,21 +173,23 @@ $conn->close();
         <!-- Dashboard Cards -->
         <div class="content">
             <div class="row">
-                <div class="d-flex align-items-center">
-                    <label for="date" class="me-2 fw-bold text-primary">📅 Select Date:</label>
-                    <input type="date" id="filterDate" class="form-control form-control me-2" style="width: 200px;">
-
-                    <label for="time_period" class="me-2 fw-bold text-primary">Select Period:</label>
-                    <select id="timePeriod" class="form-select form-select-mg w-auto custom-dropdown">
+                <!-- Filter Section -->
+                <div class="d-flex align-items-center justify-content-center mb-4 p-3 bg-white rounded shadow-sm filter-section">
+                    <label for="filterDate" class="me-2 fw-bold text-primary">📅 Select Date:</label>
+                    <input type="date" id="filterDate" class="form-control form-control-sm me-3" style="width: 200px;">
+                    
+                    <label for="timePeriod" class="me-2 fw-bold text-primary">Select Period:</label>
+                    <select id="timePeriod" class="form-select form-select-sm me-3 custom-dropdown" style="width: auto;">
                         <option value="">All</option>
                         <option value="AM">AM</option>
                         <option value="PM">PM</option>
                     </select>
 
-                    <button id="filterButton" class="btn btn-primary ms-3">
+                    <button id="filterButton" class="btn btn-primary btn-sm">
                         <i class="bi bi-funnel"></i> Filter
                     </button>
                 </div>
+
                 <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                     <div class="card text-center p-3 shadow">
                         <h3>Total Workers</h3>

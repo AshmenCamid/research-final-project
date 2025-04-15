@@ -28,13 +28,22 @@ $result = mysqli_query($conn, $sql);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/attendance.css">
     <link rel="stylesheet" href="../assets/css/add.css">
     <style>
-        .content { border: 1px solid; padding: 20px 50px; border-radius: 20px; border-color: rgb(204, 201, 201); }
-        td, th { border: 1px solid; padding: 12px 15px; text-align: center; }
-        .content-table { border-collapse: collapse; margin: 25px 0; font-size: 1em; min-width: 400px; }
+        .content { border: 1px solid; padding: 20px 10px; border-radius: 20px; border-color: rgb(204, 201, 201); }
+        td, th { border: 1px solid; padding: 12px 0px; text-align: center; }
+        .content-table { border-collapse: collapse; margin: 0px 0; font-size: 1em; min-width: 300px; }
         .content-table thead tr { font-weight: bold; background-color: #f8f9fa; }
+        /* Sidebar Styling */
+.header-title {
+    font-size: 2.5rem !important; /* Larger font size */
+    font-weight: bold !important; /* Make it bold */
+    color: #162d72 !important; /* Custom blue color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important; /* Add subtle shadow */
+    text-align: center !important; /* Center align the text */
+    margin-bottom: 20px !important; /* Add spacing below */
+}
     </style>
 </head>
 <body>
@@ -77,7 +86,7 @@ $result = mysqli_query($conn, $sql);
 
 <div class="main-content container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3" style="border: 1px solid; padding: 7px; border-radius: 9px; border-color: rgb(197, 194, 194);">
-        <h1 class="text-primary kanit">Attendance</h1>
+        <h1 class="header-title">Attendance</h1>
         <div class="fw-bold fs-5">
             <i class="bi bi-person"></i> <span id="userName">ADMIN</span>
         </div>
@@ -85,7 +94,7 @@ $result = mysqli_query($conn, $sql);
 
     <div class="content">
         <form method="GET" class="mb-3 p-3 bg-light rounded shadow-sm">
-            <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2">
                 <label for="date" class="me-2 fw-bold text-primary">📅 Select Date:</label>
                 <input type="date" id="date" name="date" class="form-control me-2" value="<?= $selected_date; ?>" style="max-width: 200px;">
                 <button type="submit" class="btn btn-primary">
@@ -95,17 +104,19 @@ $result = mysqli_query($conn, $sql);
         </form>
 
 
-        <table class="table table-bordered text-center">
-            <thead class="table-primary">
-                <tr>
-                    <th>WORKER ID</th>
-                    <th>WORKER NAME</th>
-                    <th>ROLE</th>
-                    <th>TIME IN</th>
-                    <th>TIME OUT</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="table-responsive">
+    <table class="table table-bordered text-center content-table">
+        <thead class="table-primary">
+            <tr>
+                <th>WORKER ID</th>
+                <th>WORKER NAME</th>
+                <th>ROLE</th>
+                <th>TIME IN</th>
+                <th>TIME OUT</th>
+            </tr>
+        </thead>
+        <tbody>
+
                 <?php
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {

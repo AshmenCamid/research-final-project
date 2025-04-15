@@ -2,22 +2,14 @@
 // Purpose: This file provides an API endpoint to fetch worker statistics for the dashboard.
 // It calculates the total workers, currently in workers, off-duty workers, and absent workers.
 
+session_start();
 header("Content-Type: application/json");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 date_default_timezone_set('Asia/Manila'); // Set timezone to Philippine time
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project_db";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    echo json_encode(["error" => "Database connection failed: " . $conn->connect_error]);
-    exit;
-}
+include("controllers/conn.php"); // Use centralized connection
 
 // Get date and period from request
 $date = isset($_POST['date']) ? trim($_POST['date']) : date("Y-m-d");

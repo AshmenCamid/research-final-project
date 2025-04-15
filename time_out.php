@@ -8,17 +8,7 @@ ini_set('display_errors', 1);
 
 date_default_timezone_set('Asia/Manila'); // Set timezone to Philippine time
 
-// Database connection setup
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project_db";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    echo json_encode(["error" => "Database connection failed: " . $conn->connect_error]);
-    exit;
-}
+include("controllers/conn.php"); // Use centralized connection
 
 // Get worker ID from request
 $worker_id = isset($_POST['worker_id']) ? trim($_POST['worker_id']) : '';

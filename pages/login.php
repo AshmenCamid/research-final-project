@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../controllers/conn.php'; // Include database connection file
+include '../controllers/conn.php'; // Use centralized connection
 
 header('Content-Type: application/json');
 

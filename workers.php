@@ -11,7 +11,7 @@
 <body>
 
     <!-- Header section with logos and title -->
-    <div class="header">
+    <div class="header d-flex align-items-center justify-content-between">
         <img src="assets/image/logo.png" alt="Left Logo" class="left-logo">
         <div class="header-title-container">
             Special Program for Employment of Students

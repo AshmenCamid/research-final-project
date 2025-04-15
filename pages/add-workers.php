@@ -1,8 +1,8 @@
 <?php
+include("../controllers/conn.php"); // Use centralized connection
+
 // Purpose: This file allows the admin to add new workers to the system. 
 // It generates a unique worker ID, sets default values, and inserts the worker into the database.
-
-include("../controllers/conn.php");
 
 // Generate worker_id automatically
 // Explanation: The worker ID is incremented based on the last ID in the database.
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

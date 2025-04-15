@@ -46,6 +46,72 @@
         .modal-icon {
             font-size: 50px;
         }
+
+        .header {
+            display: flex;
+            align-items: center; /* Align logos and title vertically */
+            justify-content: space-between;
+            padding: 10px 0px;
+        }
+
+        .left-logo, .right-logo {
+            max-width: 100px;
+            height: auto;
+            margin: 0; /* Remove extra margin */
+        }
+
+        .header-title-container {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                align-items: center; /* Center align for smaller screens */
+            }
+
+            .left-logo, .right-logo {
+                max-width: 80px;
+                margin: 5px auto; /* Adjust margin for smaller screens */
+            }
+
+            .header-title-container {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-title-container {
+                font-size: 1rem;
+            }
+
+            .left-logo, .right-logo {
+                max-width: 70px;
+            }
+        }
+
+        @media only screen and (max-width:800px) {
+            /* For tablets: */
+            .main {
+                width: 80%;
+                padding: 0;
+            }
+            .right {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+            .menu, .main, .right {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -65,6 +131,7 @@
             <div class="form-section">
                 <img src="assets/image/admin.webp" alt="Admin Icon" class="admin-image">
                 <h2>ADMIN</h2>
+                <!-- Adjusted input fields for better responsiveness -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="bi bi-person"></i>

@@ -1,12 +1,15 @@
 /* Sidebar Styling */
-.header-title {
-    font-size: 2.5rem !important; /* Larger font size */
-    font-weight: bold !important; /* Make it bold */
-    color: #162d72 !important; /* Custom blue color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important; /* Add subtle shadow */
-    text-align: center !important; /* Center align the text */
-    margin-bottom: 20px !important; /* Add spacing below */
+.content {
+    border: 1px solid;
+    padding: 20px 50px;
+    border-radius: 20px;
+    border-color: rgb(204, 201, 201);
+    margin: 0 !important; /* ✅ Removes any default or inherited margin */
 }
+.content {
+    margin: 0 !important;
+}
+
 .sidebar {
     width: 190px;
     height: 100vh;
@@ -29,6 +32,7 @@
     padding: 10px 20px; /* More spacing */
     width: 150px; /* Adjust width as needed */
 }
+
 /* Sidebar Toggle for Mobile */
 @media (max-width: 991px) {
     .sidebar {
@@ -83,7 +87,7 @@
 /* Main Content */
 .main-content {
     margin-left: 220px; /* Adjust margin to ensure it is not behind the sidebar */
-    margin-right: -10px;
+    margin-right: -50px;
     padding: 30px; /* Increase padding */
     transition: all 0.3s ease-in-out;
     max-width: calc(100% - 220px); /* Further reduce the width */
@@ -176,47 +180,62 @@
         font-size: 0.9rem;
     }
 }
-
-/* Responsive Styles for max-width: 390px */
 @media (max-width: 390px) {
-    .main-content {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 20px;
-        margin-top: 20px;
+    .content {
+        padding: 15px 20px;
     }
-    .filter-section {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px;
-    }
-    .filter-section label {
-        margin-bottom: 5px;
-        font-size: 0.9rem;
-    }
-    .filter-section input,
-    .filter-section select,
-    .filter-section button {
-        width: 100%;
-        margin-bottom: 10px;
-        font-size: 0.8rem;
-    }
-    .main-content {
-        padding: 10px;
-    }
-    .card {
-        padding: 10px;
-        font-size: 0.8rem;
-    }
+
     h1 {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
-    .custom-dropdown {
-        font-size: 0.8rem;
+
+    .main-content {
+        padding: 15px;
+        margin: 10px 0 0 0;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .form-control {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .content-table {
+        font-size: 0.75rem;
+        min-width: 600px; /* force horizontal scroll */
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    td, th {
+        padding: 10px 8px;
+    }
+
+    .sidebar {
         width: 100%;
+        height: auto;
+        position: relative;
+        padding-bottom: 10px;
     }
+
     .sidebar .nav-link {
-        font-size: 12px;
+        font-size: 14px;
         padding: 8px 10px;
+    }
+
+    .sidebar-logo img {
+        max-width: 70px;
+    }
+
+    #userName {
+        font-size: 0.9rem;
     }
 }

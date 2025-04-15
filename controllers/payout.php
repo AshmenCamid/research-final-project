@@ -34,4 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "Invalid request";
 }
 
-mysqli_close($conn);
+$conn->close();
+?>

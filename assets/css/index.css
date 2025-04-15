@@ -1,10 +1,10 @@
+/* General reset and body styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 
 body {
     display: flex;
@@ -15,60 +15,180 @@ body {
     flex-direction: column;
 }
 
-
+/* Header styling */
 .header {
-    margin-top: 30px;
+    margin-top: -25px; /* Reduced the header's top margin */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 5px 15px;  
+    align-items: center; /* Aligns logos and title vertically */
+    justify-content: flex-start; /* Align content to the left */
+    width: 100%; /* Ensure the header spans the full width */
+    padding: 10px 0; /* Adds padding inside the header */
+    position: relative;
 }
-
 
 .header-title-container {
     background-color: #1e40af;
     color: white;
-    padding: 20px 30px;
+    padding: 20px 20px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: left;
     align-items: center;
-    width: 70%;
+    width: 60%; /* Reduce the width of the blue header */
     position: absolute;
-    left: 0;
-    top: 30px; 
-    height: 50px;
-    z-index: -1;
-    padding-left: 110px; 
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    height: 60px;
+    z-index: 1;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-left: 60px; /* Shift the header to the left */
 }
 
 
-.left-logo, .right-logo {
+.left-logo {
     width: 80px;
     height: 80px;
+    margin-right: 10px; /* Add space between the logo and the header */
+    z-index: 2; /* Ensure the logo appears above the header */
 }
 
+.right-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0; /* Ensures no extra margin around the logo */
+    vertical-align: middle; /* Aligns the logo with the header text */
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row; /* Keep logos and title in a row */
+        align-items: center; /* Align items vertically */
+        justify-content: space-between; /* Maintain spacing between logos and title */
+        padding: 10px 15px; /* Adjust padding */
+    }
+
+    .left-logo, .right-logo {
+        width: 60px; /* Scale down logo size */
+        height: 60px;
+    }
+
+    .header-title-container {
+        font-size: 1.2rem; /* Scale down title size */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .container {
+        flex-direction: row; /* Keep elements side by side */
+        align-items: center; /* Center align elements */
+        gap: 100px; /* Reduce gap between elements */
+        margin-top: 20px; /* Adjust top margin */
+    }
+
+    .logo-section img {
+        width: 300px; /* Scale down logo size */
+        margin-top: 20px; /* Adjust spacing above the logo */
+    }
+
+    .form-section {
+        width: 250px; /* Scale down form width */
+        padding: 10px; /* Adjust padding */
+        border-radius: 30px; /* Adjust border radius */
+    }
+
+    h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    input {
+        font-size: 12px; /* Adjust input font size */
+        padding: 6px; /* Adjust input padding */
+    }
+
+    button {
+        font-size: 12px; /* Adjust button font size */
+        padding: 8px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        flex-direction: row; /* Keep logos and title in a row */
+        align-items: center; /* Align items vertically */
+        justify-content: space-between; /* Maintain spacing between logos and title */
+        padding: 10px 10px; /* Adjust padding */
+    }
+
+    .left-logo, .right-logo {
+        width: 50px; /* Further scale down logo size */
+        height: 50px;
+    }
+
+    .header-title-container {
+        font-size: 1rem; /* Further scale down title size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .container {
+        flex-direction: row; /* Keep elements side by side */
+        align-items: center; /* Center align elements */
+        gap: 50px; /* Further reduce gap between elements */
+        margin-top: 15px; /* Adjust top margin */
+    }
+
+    .logo-section img {
+        width: 250px; /* Further scale down logo size */
+        margin-top: 15px; /* Adjust spacing above the logo */
+    }
+
+    .form-section {
+        width: 200px; /* Further scale down form width */
+        padding: 8px; /* Adjust padding */
+        border-radius: 20px; /* Adjust border radius */
+    }
+
+    h2 {
+        font-size: 18px; /* Further adjust heading size */
+    }
+
+    input {
+        font-size: 10px; /* Further adjust input font size */
+        padding: 5px; /* Adjust input padding */
+    }
+
+    button {
+        font-size: 10px; /* Further adjust button font size */
+        padding: 6px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 390px) {
+    .left-logo, .right-logo {
+        display: none; /* Hide the left and right logos */
+    }
+
+    .header-title-container {
+        margin: 0; /* Adjust title alignment */
+        padding: 10px; /* Add padding for better spacing */
+    }
+}
+
+/* Container and logo section styling */
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 200px;
-    margin-top: -20px;
+    margin-top: 30px; /* Lower the container (affects login form and peso.png) */
 }
-
 
 .logo-section img {
     width: 450px;
     height: auto;
+    margin-top: 30px; /* Lower the peso.png logo */
 }
 
-
+/* Form section styling */
 .form-section {
     padding: 15px;
     border: 3px solid #1e40af;
@@ -79,7 +199,6 @@ body {
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-
 .admin-image {
     width: 60px;
     border-radius: 100%;
@@ -88,7 +207,7 @@ body {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-
+/* Typography styling */
 h2 {
     margin-bottom: 20px;
     font-size: 22px;
@@ -110,7 +229,7 @@ input {
     font-size: 14px;
 }
 
-
+/* Options and button styling */
 .options {
     display: flex;
     justify-content: space-between;
@@ -125,7 +244,6 @@ input {
     font-weight: bold;
 }
 
-
 button {
     width: 100%;
     padding: 10px;
@@ -138,12 +256,11 @@ button {
     font-weight: bold;
 }
 
-
 button:hover {
     background: #162d72;
 }
 
-
+/* Link styling */
 a {
     color: #1e40af;
     text-decoration: none;
@@ -156,85 +273,156 @@ p {
     margin-top: 10px;
 }
 
-
+/* Registration form styling */
 .registration-form {
     display: none;
+    padding: 15px;
+    border: 3px solid #1e40af;
+    border-radius: 20px;
+    background: white;
+    text-align: center;
+    width: 280px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-.registration-form {
-padding: 15px;
-border: 3px solid #1e40af;
-border-radius: 20px;
-background: white;
-text-align: center;
-width: 280px;  
-box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 
 .registration-form h2 {
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
-
 
 .registration-form label {
-display: block;
-text-align: left;
-font-weight: bold;
-font-size: 13px; 
-margin-top: 8px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 8px;
 }
-
 
 .registration-form input {
-width: 100%;
-padding: 8px; 
-margin: 4px 0;
-border: 2px solid #1e40af;
-border-radius: 6px;
-font-size: 13px;
-outline: none;
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 2px solid #1e40af;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
 }
-
 
 .registration-form input:focus {
-border-color: #162d72;
-box-shadow: 0 0 4px rgba(30, 64, 175, 0.5);
+    border-color: #162d72;
+    box-shadow: 0 0 4px rgba(30, 64, 175, 0.5);
 }
 
-
 .registration-form button {
-width: 100%;
-padding: 10px;
-background: #1e40af;
-color: white;
-border: none;
-border-radius: 20px;
-cursor: pointer;
-font-size: 14px;
-font-weight: bold;
-margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
 }
 
 .registration-form button:hover {
-background: #162d72;
+    background: #162d72;
 }
 
-
 .registration-form p {
-font-size: 12px;
-margin-top: 8px;
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 .registration-form a {
-color: #1e40af;
-text-decoration: none;
-font-weight: bold;
-font-size: 12px;
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .registration-form a:hover {
-text-decoration: underline;
+    text-decoration: underline;
+}
+
+/* Additional responsive adjustments for smaller screens */
+@media (max-width: 400px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: row; /* Keep logos on the left and right */
+        justify-content: space-between; /* Maintain spacing between logos and title */
+        align-items: center;
+        padding: 10px 10px; /* Adjust padding for very small screens */
+    }
+
+    .header-title-container {
+        font-size: 0.9rem; /* Further reduce title size */
+        text-align: center;
+        margin: 0 auto;
+        width: auto;
+        padding: 6px; /* Adjust padding for very small screens */
+    }
+
+    .left-logo, .right-logo {
+        width: 50px; /* Further reduce logo size */
+        height: 50px;
+    }
+
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align elements */
+        gap: 20px; /* Reduce gap between elements */
+        margin-top: 20px;
+    }
+
+    .logo-section img {
+        width: 250px; /* Reduce logo size */
+        margin-top: 15px;
+    }
+
+    .form-section {
+        width: 90%; /* Adjust form width to fit smaller screens */
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for better design */
+    }
+
+    h2 {
+        font-size: 18px; /* Adjust heading size */
+    }
+
+    input {
+        font-size: 12px; /* Adjust input font size */
+        padding: 6px;
+    }
+
+    button {
+        font-size: 12px; /* Adjust button font size */
+        padding: 8px;
+    }
+
+    .registration-form {
+        width: 90%; /* Adjust registration form width */
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .registration-form h2 {
+        font-size: 18px; /* Adjust heading size */
+    }
+
+    .registration-form input {
+        font-size: 12px; /* Adjust input font size */
+        padding: 6px;
+    }
+
+    .registration-form button {
+        font-size: 12px; /* Adjust button font size */
+        padding: 8px;
+    }
 }
